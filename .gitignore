@@ -1,0 +1,14 @@
+﻿target/
+.vscode/
+startup-error.txt
+.DS_Store
+Thumbs.db
+.classpath
+.project
+.settings/
+.idea/
+*.log
+.env
+application-local.properties
+data/*.db
+data/*.sqbpro

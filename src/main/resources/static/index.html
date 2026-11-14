@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Payment Tracker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>QR Payment Tracker</h1>
+        <p>Fixed Amount QR Payment Management System</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="#payment">Make Payment</a>
+        <a href="#history">Transactions</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- Dashboard -->
+        <h2>Dashboard</h2>
+        <p>Welcome! Manage your demo payment transactions.</p>
+
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Successful Amount</h3>
+                <h2 id="totalAmount">₹0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Transactions</h3>
+                <h2 id="total">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Successful Payments</h3>
+                <h2 id="success">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Failed Payments</h3>
+                <h2 id="failed">0</h2>
+            </div>
+
+        </section>
+
+        <!-- Make Payment -->
+        <section id="payment" class="payment-section">
+
+            <h2>Make a Demo Payment</h2>
+
+            <label for="accountHolderName">
+                Account Holder Name
+            </label>
+
+            <input
+                type="text"
+                id="accountHolderName"
+                placeholder="Enter account holder name"
+                required
+            >
+
+            <label for="amount">
+                Select Payment Amount
+            </label>
+
+            <select id="amount">
+                <option value="100">₹100</option>
+                <option value="200">₹200</option>
+                <option value="500">₹500</option>
+                <option value="1000">₹1000</option>
+            </select>
+
+            <button onclick="generateQR()">
+                Generate QR Code
+            </button>
+
+            <div id="qr-area"></div>
+
+            <div id="payment-actions" style="display:none;">
+
+                <button onclick="simulatePayment('Success')">
+                    Simulate Success
+                </button>
+
+                <button
+                    class="failed-btn"
+                    onclick="simulatePayment('Failed')"
+                >
+                    Simulate Failure
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Transaction History -->
+        <section id="history">
+
+            <h2>Transaction History</h2>
+
+            <!-- Search Transaction -->
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by Transaction ID..."
+                onkeyup="searchTransactions()"
+            >
+
+            <!-- Payment Status Filter -->
+            <label for="statusFilter">
+                Filter by Payment Status:
+            </label>
+
+            <select
+                id="statusFilter"
+                onchange="filterTransactions()"
+            >
+                <option value="All">All Transactions</option>
+                <option value="Success">Successful Payments</option>
+                <option value="Failed">Failed Payments</option>
+            </select>
+
+            <!-- Transaction Table -->
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Account Holder Name</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date &amp; Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="transaction-list">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- JavaScript File -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
