@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.IOException;
 
 public class DatabaseManager {
 
@@ -14,6 +17,14 @@ public class DatabaseManager {
             "jdbc:sqlite:data/payment_tracker.db";
 
     public static Connection getConnection() throws SQLException {
+
+        try {
+            Files.createDirectories(Path.of("data"));
+        } catch (IOException e) {
+            throw new SQLException(
+                    "Unable to create database folder", e);
+        }
+
         return DriverManager.getConnection(URL);
     }
 
