@@ -1,66 +1,50 @@
-# Fixed-Amount QR Payment Verification and Tracker
+# Fixed-Amount QR Payment Tracker
 
 ## Project Overview
-The Fixed-Amount QR Payment Verification and Tracker is a Java-based web application developed using Spring Boot and SQLite.
+The Fixed-Amount QR Payment Tracker is a Java-based web application developed using Spring Boot, SQLite, HTML, CSS and JavaScript.
 
-The system allows users to verify payment amounts against a predefined fixed amount and track payment transactions.
+It allows users to generate QR codes for a fixed payment amount, simulate payment results and track transactions.
 
 ## Technologies Used
-- Java 21
+- Java
 - Spring Boot 3.5.6
 - Maven
-- SQLite Database
+- SQLite
 - JDBC
-- HTML, CSS and JavaScript
+- HTML
+- CSS
+- JavaScript
 
 ## Main Features
-- Fixed amount payment verification
-- Payment status tracking
-- Store payment transaction records
-- View complete payment history
-- Search payments using transaction ID
-- Filter payments by status
-- Display total, successful, failed and pending payment counts
+- QR code generation
+- Account holder name entry
+- Fixed amount validation (₹250)
+- Simulated successful and failed payments
+- Transaction ID generation and duplicate validation
+- Payment history
+- Search by transaction ID
+- Filter transactions by payment status
+- Dashboard statistics
+- SQLite database storage
+- Payment details and status verification
 
-## Project Structure
-```text
-FixedAmountQRTRacker/
-├── data/
-│   ├── payment_tracker.db
-│   └── payment_tracker.sqbpro
-├── src/
-│   └── main/
-│       ├── java/com/qrtracker/
-│       │   ├── database/
-│       │   ├── model/
-│       │   ├── service/
-│       │   ├── QRController.java
-│       │   ├── HomeController.java
-│       │   └── QRTrackerApplication.java
-│       └── resources/static/
-│           └── index.html
-├── pom.xml
-└── README.md
-```
+## Team Roles
+- Member 1: User Interface
+- Member 2: Payment Logic
+- Member 3: Database Development
+- Member 4: Integration and Testing
 
 ## How to Run
-1. Install Java 21 and Maven.
+1. Install Java and Eclipse or another Java IDE.
 2. Clone or download this repository.
-3. Open the project folder in VS Code.
-4. Run the following command:
-
-```bash
-mvn spring-boot:run
-```
-
-5. Open your browser and visit:
-
-http://localhost:8080
+3. Import the project as an Existing Maven Project.
+4. Run QRTrackerApplication.java.
+5. Open http://localhost:8080 in your browser.
 
 ## Database
-The project uses SQLite to store payment transaction details.
+The application uses SQLite to store payment transaction details.
 
-Database location: `data/payment_tracker.db`
+The local database is excluded from GitHub using .gitignore.
 
-## Note
-Payment verification currently uses local amount comparison and transaction ID validation. It does not perform live bank or UPI payment verification.
+## Important Note
+This project uses simulated payment transactions for demonstration. It does not perform real bank or UPI payment verification.
